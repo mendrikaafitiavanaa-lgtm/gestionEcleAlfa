@@ -1,0 +1,226 @@
+/*GLOBAL*/
+body {
+  background-color: #f5f5f5;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/*HEADER*/
+.header {
+  height: 60px;
+  background-color: #061521; /* Couleur demandée */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 200px;
+  right: 0;
+  z-index: 1040;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: white;
+  white-space: nowrap; /* évite le retour à la ligne */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 0.5rem;
+}
+
+/* Logo */
+/*.logo-header {
+  width: 40px;
+  height: auto;
+}*/
+
+/* Bouton hamburger */
+.menu-toggle {
+  border: none;
+  background: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: white;
+  /*margin-left: 0;*/
+}
+
+/* User info à droite */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: white;
+}
+/* Effet hover sur les liens */
+/*.nav-pills .nav-link:hover {
+  background-color: red;
+}*/
+
+
+
+/*  Sidebar fixe avec fond gris */
+.sidebar {
+  width: 200px;
+  font-size: 0.9rem; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /*height: calc(100vh - 60px);*/
+ 
+  padding-top: 60px; 
+  position: fixed;
+  top: 0;/*60px;*/
+  left: 0;
+  height: 100vh;
+
+  background-color:#154c79 !important; 
+  padding: 1rem;
+  padding-top: 60px;
+  color: white;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+  /*transition: transform 0.3s ease-in-out;*/
+  z-index: 1050; /* au-dessus du contenu principal */
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Espacement entre les éléments du menu */
+.sidebar .nav-item {
+  margin-bottom: 10px;
+}
+
+/* Liens du menu */
+.sidebar .nav-link {
+  font-size: 0.85rem;
+  padding: 7px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  color: white !important; /* forcer texte blanc */
+}
+
+/* Contenu principal */
+
+.sidebar .nav-link:hover {
+  background-color: #0d6efd !important;
+}
+
+.main-content {
+  margin-left: 200px;
+  margin-top: 60px;
+  padding: 15px;
+  transition: all 0.3s ease;
+  /*transition: margin-left 0.3s ease-in-out;*/
+  
+}
+
+.main-content.content-expanded {
+  margin-left: 70px;
+}
+
+/*  Liens de contact (bas de sidebar) */
+.sidebar .contact-links {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sidebar .contact-links .coded-by {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  margin: 0;
+  text-align: center;
+}
+
+.sidebar .contact-links a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.sidebar .contact-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.sidebar .contact-icons a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+/*.sidebar .contact-links a:hover {
+  text-decoration: underline;
+}*/
+
+/* Masquer le sidebar */
+body.sidebar-hidden .sidebar{
+  transform: translateX(-100%);
+  /*width: 70px;*/
+  /*margin-left: -200px;*/
+
+}
+
+/* HEADER quand sidebar réduit */
+body.sidebar-hidden .header{
+    left: 0;
+}
+
+body.sidebar-hidden .main-content{
+  margin-left:0;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  /*sidebar cache par defaut*/
+  .sidebar {
+    /*display: none;*/
+    transform: translateX(-100%);
+  }
+   /* quand ouvert */
+  body.sidebar-visible .sidebar{
+    transform: translateX(0);
+  }
+  .header {
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+    /*margin-left: 15%;*/
+  }
+
+  /*texte visible*/
+  .header-title {
+    font-size : 0.9rem;
+  }
+  
+}
+
+
